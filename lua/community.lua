@@ -30,25 +30,36 @@ return {
     { import = "astrocommunity.editing-support.nvim-devdocs" },
     { import = "astrocommunity.editing-support.nvim-treesitter-endwise" },
     { import = "astrocommunity.editing-support.rainbow-delimiters-nvim" },
-    { import = "astrocommunity.editing-support.ultimate-autopair-nvim" },
     { import = "astrocommunity.editing-support.zen-mode-nvim" },
     { import = "astrocommunity.register.nvim-neoclip-lua" },
+    { import = "astrocommunity.quickfix.nvim-bqf" },
 
     -- File and Code Management Plugins
     { import = "astrocommunity.file-explorer.oil-nvim" },
-    { import = "astrocommunity.git.octo-nvim" },
-    { import = "astrocommunity.markdown-and-latex.markdown-preview-nvim" },
-    { import = "astrocommunity.markdown-and-latex.render-markdown-nvim" },
+    { import = "astrocommunity.project.project-nvim" },
     { import = "astrocommunity.media.image-nvim" },
     { import = "astrocommunity.media.img-clip-nvim" },
+    { import = "astrocommunity.markdown-and-latex.render-markdown-nvim" },
+    { import = "astrocommunity.markdown-and-latex.markdown-preview-nvim" },
+    -- If errors show up for markdown preview, run the following in the terminal:
+    -- -- cd ~/.local/share/nvim/lazy/markdown-preview.nvim
+    -- -- npm install
+
+    -- Lastly run the following in the terminal to fix the broken plugin:
+    -- # Navigate to the plugin directory (if not already there)
+    -- -- cd ~/.local/share/nvim/lazy/markdown-preview.nvim
+    --
+    -- # Discard changes in yarn.lock
+    -- -- git restore yarn.lock
+    --
+    -- # Remove the untracked package-lock.json file
+    -- -- rm package-lock.json
 
     -- Utility and Tools Plugins
-    { import = "astrocommunity.keybinding.nvcheatsheet-nvim" },
     { import = "astrocommunity.media.codesnap-nvim" },
     { import = "astrocommunity.motion.harpoon" },
     { import = "astrocommunity.motion.nvim-surround" },
     { import = "astrocommunity.scrolling.mini-animate" },
-    { import = "astrocommunity.scrolling.neoscroll-nvim" },
     { import = "astrocommunity.utility.noice-nvim" },
 
     --[[ ## Vim Surround Keymaps Documentation
@@ -72,21 +83,16 @@ return {
     -- LSP AND DIAGNOSTICS =================================================
     { import = "astrocommunity.code-runner.compiler-nvim" },
     { import = "astrocommunity.code-runner.sniprun" },
-    -- { import = "astrocommunity.diagnostics.error-lens-nvim" },
     { import = "astrocommunity.diagnostics.trouble-nvim" },
     { import = "astrocommunity.lsp.actions-preview-nvim" },
-    -- { import = "astrocommunity.lsp.delimited-nvim" },
     { import = "astrocommunity.lsp.garbage-day-nvim" },
     { import = "astrocommunity.lsp.inc-rename-nvim" },
-    -- { import = "astrocommunity.lsp.lsp-lens-nvim" },
     { import = "astrocommunity.lsp.lsp-signature-nvim" },
     { import = "astrocommunity.lsp.lsplinks-nvim" },
-    -- { import = "astrocommunity.lsp.nvim-lint" },
     { import = "astrocommunity.lsp.nvim-lsp-file-operations" },
     { import = "astrocommunity.lsp.ts-error-translator-nvim" },
 
     -- DEBUGGING ============================================================
-    -- { import = "astrocommunity.debugging.nvim-bqf" },
     { import = "astrocommunity.debugging.nvim-dap-repl-highlights" },
     { import = "astrocommunity.debugging.nvim-dap-virtual-text" },
     { import = "astrocommunity.debugging.persistent-breakpoints-nvim" },
@@ -95,12 +101,15 @@ return {
     -- LANGUAGES ============================================================
     { import = "astrocommunity.pack.bash" },
     { import = "astrocommunity.pack.cpp" },
+    { import = "astrocommunity.pack.docker" },
+    { import = "astrocommunity.pack.full-dadbod" },
     { import = "astrocommunity.pack.html-css" },
     { import = "astrocommunity.pack.java" },
     { import = "astrocommunity.pack.json" },
     { import = "astrocommunity.pack.lua" },
     { import = "astrocommunity.pack.markdown" },
     { import = "astrocommunity.pack.python" },
+    { import = "astrocommunity.pack.sql" },
     { import = "astrocommunity.pack.tailwindcss" },
     { import = "astrocommunity.pack.typescript" },
     { import = "astrocommunity.pack.yaml" },
@@ -352,6 +361,7 @@ return {
                 { filter = { event = "msg_show", find = "^%d+ fewer lines$" }, opts = { skip = true } }, -- skip delete notifications
                 { filter = { event = "msg_show", find = "^%d+ lines yanked$" }, opts = { skip = true } }, -- skip yank notifications
                 { filter = { event = "notify", find = "Client with id %d+ not attached to buffer %d+" }, opts = { skip = true } }, -- skip buffer attach notifications
+                { filter = { event = "notify", find = "DevDocs" }, opts = { skip = true } }, -- skip devdocs fetching notification
                 { -- Add a filter to skip any classpath provider error message
                     filter = {
                         event = "msg_show",
@@ -483,6 +493,14 @@ return {
     -- { import = "astrocommunity.bars-and-lines.dropbar-nvim" }, -- NVIM v0.10 NEEDED
     -- { import = "astrocommunity.scrolling.satellite-nvim" },
     -- { import = "astrocommunity.git.git-blame-nvim" },
+    -- { import = "astrocommunity.editing-support.ultimate-autopair-nvim" },
+    -- { import = "astrocommunity.git.octo-nvim" },
+    -- { import = "astrocommunity.keybinding.nvcheatsheet-nvim" },
+    -- { import = "astrocommunity.scrolling.neoscroll-nvim" },
+    -- { import = "astrocommunity.lsp.delimited-nvim" },
+    -- { import = "astrocommunity.lsp.nvim-lint" },
+    -- { import = "astrocommunity.diagnostics.error-lens-nvim" },
+    -- { import = "astrocommunity.lsp.lsp-lens-nvim" },
 
     -- Commented out configurations::-----------------------------------------
 

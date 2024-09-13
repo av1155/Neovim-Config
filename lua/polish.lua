@@ -24,12 +24,19 @@ vim.filetype.add {
 }
 
 -- ================================================================================
-require("inc_rename").setup {}
 
--- ---@diagnostic disable-next-line: missing-fields
--- require("notify").setup {
---     background_colour = "#262d3b",
--- }
+-- setup nvim-dap-repl-highlights or else the dap_repl parser won't be found
+require("nvim-dap-repl-highlights").setup()
+local dap = require "dap"
+dap.configurations.java = {
+    {
+        name = "Java Debug Current File",
+        type = "java",
+        request = "launch",
+        program = "${file}",
+        repl_lang = "java", -- Ensuring that the REPL buffer will have Java filetype
+    },
+}
 
 -- Defer the execution of setting LSP and Mason configurations to reduce startup time
 vim.defer_fn(function()
@@ -44,11 +51,30 @@ vim.defer_fn(function()
     }
 end, 1000) -- Delay in milliseconds, adjust as needed
 
--- ================================================================================
+-- ======================= Bux Fixes for Specific Issues ==========================
+
+-- require("inc_rename").setup {}
+
+-- ---@diagnostic disable-next-line: missing-fields
+-- require("notify").setup {
+--     background_colour = "#262d3b",
+-- }
+
+-- ========================= Unmapping and Mapping =================================
+
+-- local opts = { noremap = true, silent = true }
 
 -- local map = vim.api.nvim_set_keymap
+-- -- Allow gf to work for non-existing files
+-- map("n", "gf", ":edit <cfile><cr>", { desc = "Edit file" })
+-- map("v", "gf", ":edit <cfile><cr>", { desc = "Edit file" })
+-- map("o", "gf", ":edit <cfile><cr>", { desc = "Edit file" })
+--
+-- map("n", "<f8>", ":cprev<cr>", { desc = "Previous item in quickfix list" })
+-- map("n", "<f9>", ":cnext<cr>", { desc = "Next item in quickfix list" })
+-- map("n", "<leader>qf", ":lua hu_toggle_qf()<cr>", { desc = "Toggle quickfix list" })
+
 local unmap = vim.api.nvim_del_keymap
--- local opts = { noremap = true, silent = true }
 
 -- Undo some AstroNvim mappings:
 unmap("n", "<leader>bse")
@@ -67,10 +93,11 @@ unmap("n", "<leader>Mt")
 -- unmap("n", "<leader>sb") -- use <leader>gb
 -- unmap("n", "<leader>sh") -- use <leader>fh
 -- unmap("n", "<leader>sm")
--- -- unmap("n", "<leader>tl") -- Not installed on bare metal
+-- unmap("n", "<leader>tl") -- Not installed on bare metal
 -- unmap("n", "<leader>tn")
 -- unmap("n", "<leader>tp")
 -- unmap("n", "<leader>w")
+
 -- -- Packer/Mason keymaps:
 -- unmap("n", "<leader>pA")
 -- unmap("n", "<leader>pS")
@@ -80,40 +107,8 @@ unmap("n", "<leader>Mt")
 -- unmap("n", "<leader>pu")
 -- unmap("n", "<leader>pv")
 
--- -- Allow gf to work for non-existing files
--- map("n", "gf", ":edit <cfile><cr>", { desc = "Edit file" })
--- map("v", "gf", ":edit <cfile><cr>", { desc = "Edit file" })
--- map("o", "gf", ":edit <cfile><cr>", { desc = "Edit file" })
---
--- map("n", "<f8>", ":cprev<cr>", { desc = "Previous item in quickfix list" })
--- map("n", "<f9>", ":cnext<cr>", { desc = "Next item in quickfix list" })
--- map("n", "<leader>qf", ":lua hu_toggle_qf()<cr>", { desc = "Toggle quickfix list" })
-
--- ================================================================================
-
--- Custom filetypes configuration
--- Uncomment and modify to set up custom filetypes as needed
--- vim.filetype.add {
---   extension = {
---     foo = "fooscript",
---   },
---   filename = {
---     ["Foofile"] = "fooscript",
---   },
---   pattern = {
---     ["~/%.config/foo/.*"] = "fooscript",
---   },
--- }
-
--- ================================================================================
-
--- -- Indenting configuration
--- vim.opt.tabstop = 4 -- Number of spaces a <Tab> counts for.
--- vim.opt.softtabstop = 4 -- Number of spaces a <Tab> counts for while performing editing operations, like inserting a <Tab> or using <BS>.
--- vim.opt.shiftwidth = 4 -- Spaces used for each step of (auto)indent.
--- vim.opt.expandtab = true -- Use spaces instead of tabs.
-
--- ================================================================================
+-- ============================= Autocommands ====================================
+-- ===============================================================================
 
 vim.api.nvim_create_autocmd({ "TextChanged", "InsertLeave" }, {
     pattern = { "*.html", "*.css" },

@@ -17,116 +17,8 @@ return {
 
     -- == Examples of Overriding Plugins ==
 
-    -- customize alpha options
-    {
-        "goolord/alpha-nvim",
-        opts = function(_, opts)
-            -- Define your existing logo
-            local custom_logo = {
-                [[                                                    ]],
-                [[ ███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗ ]],
-                [[ ████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║ ]],
-                [[ ██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║ ]],
-                [[ ██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║ ]],
-                [[ ██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║ ]],
-                [[ ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝ ]],
-                [[                                                    ]],
-                [[                                                    ]],
-            }
-
-            -- Function to center and crop the logo
-            local function center_and_crop_logo(logo)
-                local width = vim.o.columns
-                local cropped_logo = {}
-                for _, line in ipairs(logo) do
-                    local line_length = vim.fn.strdisplaywidth(line)
-                    if line_length > width then
-                        -- Crop the line if it is longer than the window width
-                        local crop_start = math.floor((line_length - width) / 2) + 1
-                        local crop_end = crop_start + width - 1
-                        line = string.sub(line, crop_start, crop_end)
-                    end
-                    -- Center the line by adding equal padding to both sides
-                    local padding = (width - vim.fn.strdisplaywidth(line)) / 2
-                    local padding_left = math.floor(padding)
-                    local padding_right = math.ceil(padding)
-                    line = string.rep(" ", padding_left) .. line .. string.rep(" ", padding_right)
-                    table.insert(cropped_logo, line)
-                end
-                return table.concat(cropped_logo, "\n")
-            end
-
-            -- Function to center a single line of text
-            local function center_text(text)
-                local width = vim.o.columns
-                local text_length = vim.fn.strdisplaywidth(text)
-                local padding = (width - text_length) / 2
-                local padding_left = math.floor(padding)
-                local padding_right = math.ceil(padding)
-                return string.rep(" ", padding_left) .. text .. string.rep(" ", padding_right)
-            end
-
-            -- Greeting function
-            local function getGreeting(name)
-                local tableTime = os.date "*t"
-                local datetime = os.date " %Y-%m-%d   %I:%M %p"
-                local hour = tableTime.hour
-                local greetingsTable = {
-                    [1] = "  Sleep well",
-                    [2] = "  Good morning",
-                    [3] = "  Good afternoon",
-                    [4] = "  Good evening",
-                    [5] = "󰖔  Good night",
-                }
-                local greetingIndex = 0
-                if hour == 23 or hour < 7 then
-                    greetingIndex = 1
-                elseif hour < 12 then
-                    greetingIndex = 2
-                elseif hour >= 12 and hour < 18 then
-                    greetingIndex = 3
-                elseif hour >= 18 and hour < 21 then
-                    greetingIndex = 4
-                elseif hour >= 21 then
-                    greetingIndex = 5
-                end
-                return datetime .. "\t" .. greetingsTable[greetingIndex] .. ", " .. name
-            end
-
-            local userName = "Andrea"
-            local greeting = getGreeting(userName)
-            local centered_greeting = center_text(greeting)
-
-            -- Adjust padding in the layout
-            opts.config.layout = {
-                { type = "padding", val = 4 }, -- Adjust top padding
-                opts.section.header,
-                { type = "padding", val = 3 }, -- Adjust padding between header and buttons
-                opts.section.buttons,
-                { type = "padding", val = 2 }, -- Adjust padding between buttons and footer
-                opts.section.footer,
-            }
-
-            -- Convert the custom_logo table to a string and center the greeting
-            local logo = center_and_crop_logo(custom_logo)
-            opts.section.header.val = vim.split(logo .. "\n" .. centered_greeting, "\n")
-
-            -- Update logo and greeting when window is resized
-            vim.api.nvim_create_autocmd("VimResized", {
-                pattern = "*",
-                callback = function()
-                    -- Recalculate the centered and cropped logo and centered greeting
-                    opts.section.header.val =
-                        vim.split(center_and_crop_logo(custom_logo) .. "\n" .. center_text(getGreeting(userName)), "\n")
-                end,
-            })
-
-            return opts
-        end,
-    },
-
     -- You can disable default plugins as follows:
-    { "max397574/better-escape.nvim", enabled = false },
+    { "max397574/better-escape.nvim", enabled = true },
 
     -- You can also easily customize additional setup of plugins that is outside of the plugin's setup call
     {
@@ -275,14 +167,14 @@ return {
 
     -- ==========================================================
 
-    -- Scrollview
-    {
-        "dstein64/nvim-scrollview",
-        config = function()
-            -- Configuration goes here (leave empty to use default settings)
-        end,
-        event = "User AstroFile",
-    }, -- End of 'nvim-scrollview'
+    -- -- Scrollview
+    -- {
+    --     "dstein64/nvim-scrollview",
+    --     config = function()
+    --         -- Configuration goes here (leave empty to use default settings)
+    --     end,
+    --     event = "User AstroFile",
+    -- }, -- End of 'nvim-scrollview'
 
     -- ==========================================================
 

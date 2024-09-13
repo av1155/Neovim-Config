@@ -92,6 +92,9 @@ return {
         dependencies = {
             "nvim-tree/nvim-web-devicons",
             "AndreM222/copilot-lualine",
+            "nvim-telescope/telescope.nvim",
+            "nvim-lua/plenary.nvim",
+            "neovim/nvim-lspconfig",
         },
         config = function()
             require("lualine").setup {
@@ -169,7 +172,16 @@ return {
                                 end
                             end,
                         },
-                        "progress",
+                        -- {
+                        --     "progress",
+                        --     color = { fg = "#ff5189", gui = "bold" }, -- Customize the progress bar
+                        --     separator = { right = "" },
+                        -- },
+                        {
+                            "progress",
+                            color = { fg = "#e06c75", gui = "bold" },
+                            separator = { right = "" },
+                        },
                     },
                     lualine_z = {
                         { "diff", separator = { right = "" }, left_padding = 2 },

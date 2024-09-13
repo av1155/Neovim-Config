@@ -13,7 +13,7 @@ return {
         -- Configure core features of AstroNvim
         features = {
             large_buf = { size = 1024 * 500, lines = 10000 }, -- set global limits for large files for disabling features like treesitter
-            autopairs = true, -- enable autopairs at start
+            autopairs = false, -- enable autopairs at start
             cmp = true, -- enable completion at start
             diagnostics_mode = 3, -- diagnostic mode on start (0 = off, 1 = no signs/virtual text, 2 = no virtual text, 3 = on)
             highlighturl = true, -- highlight URLs at start
@@ -37,7 +37,14 @@ return {
                 spell = false, -- sets vim.opt.spell
                 signcolumn = "auto", -- sets vim.opt.signcolumn to auto
                 wrap = true, -- sets vim.opt.wrap
+
+                -- Custom options:
                 showbreak = "↪ ",
+                clipboard = "unnamedplus", -- Use the system clipboard
+                tabstop = 4, -- Number of spaces a <Tab> counts for.
+                softtabstop = 4, -- Number of spaces a <Tab> counts for while performing editing operations.
+                shiftwidth = 4, -- Spaces used for each step of (auto)indent.
+                expandtab = true, -- Use spaces instead of tabs.
                 -- list = true,
                 -- listchars = {
                 --     tab = "→ ",
@@ -47,11 +54,6 @@ return {
                 --     nbsp = "␣",
                 --     eol = "↲",
                 -- },
-                tabstop = 4,
-                softtabstop = 4,
-                shiftwidth = 4,
-                expandtab = true,
-                clipboard = "unnamedplus", -- Use the system clipboard
             },
             g = { -- vim.g.<key>
                 -- configure global vim variables (vim.g)
@@ -109,8 +111,8 @@ return {
                 ["<A-s>"] = { "<Cmd>w<CR>", desc = "Save" },
                 ["<leader>f"] = { name = "󰍉 Find" },
                 -- Bindings for split windows
-                ["<C-w>\\"] = { "<cmd>vsplit<CR>", desc = "Vertical Split" },
-                ["<C-w>-"] = { "<cmd>split<CR>", desc = "Horizontal Split" },
+                ["\\"] = { "<cmd>vsplit<CR>", desc = "Vertical Split" },
+                ["-"] = { "<cmd>split<CR>", desc = "Horizontal Split" },
 
                 -- Dadbod:
                 ["<leader>lu"] = { "<Cmd>DBUIToggle<Cr>", desc = "Dadbod UI" },
@@ -248,7 +250,7 @@ return {
                     function()
                         local bufs = vim.fn.getbufinfo { buflisted = 1 }
                         require("astrocore.buffer").close(0)
-                        if require("astrocore").is_available "alpha-nvim" and not bufs[2] then require("alpha").start(true) end
+                        if require("astrocore").is_available "alpha-nvim" and not bufs[2] then require("alpha").start() end
                     end,
                     desc = "Close buffer",
                 },
@@ -259,7 +261,7 @@ return {
                         require("astrocore.buffer").close(0, true)
                         if require("astrocore").is_available "alpha-nvim" and not bufs[2] then require("alpha").start(true) end
                     end,
-                    desc = "Close buffer",
+                    desc = "Force close buffer",
                 },
 
                 -- navigate buffer tabs with `H` and `L`
