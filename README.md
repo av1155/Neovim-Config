@@ -1,5 +1,7 @@
 # Neovim-Config
 
+###### My own personalized Neovim config which uses [AstroNvim](https://github.com/AstroNvim/AstroNvim), an aesthetic and feature-rich Neovim configuration.
+
 <!--toc:start-->
 
 -   [Neovim-Config](#neovim-config)
@@ -10,8 +12,6 @@
         -   [Create a new user repository](#create-a-new-user-repository)
         -   [Install and launch AstroNvim](#install-and-launch-astronvim)
         <!--toc:end-->
-
-My own personalized Neovim config which uses [AstroNvim](https://github.com/AstroNvim/AstroNvim), an aesthetic and feature-rich Neovim configuration.
 
 ## ✨ Features
 
@@ -42,9 +42,9 @@ My own personalized Neovim config which uses [AstroNvim](https://github.com/Astr
     -   [Python](https://www.python.org/) - python repl toggle terminal (`<leader>tp`)
     -   [Node](https://nodejs.org/en/) - node repl toggle terminal (`<leader>tn`)
 
-> [!NOTE] > <sup id="1">[1]</sup> All downloadable Nerd Fonts contain icons which are used by AstroNvim. Install the Nerd Font of your choice to your system and in your terminal emulator settings, set its font face to that Nerd Font. If you are using AstroNvim on a remote system via SSH, you do not need to install the font on the remote system.
+> **Note:** All downloadable Nerd Fonts contain icons which are used by AstroNvim. Install the Nerd Font of your choice to your system and in your terminal emulator settings, set its font face to that Nerd Font. If you are using AstroNvim on a remote system via SSH, you do not need to install the font on the remote system.
 
-> [!NOTE] > <sup id="2">[2]</sup> Note when using default theme: For MacOS, the default terminal does not have true color support. You will need to use [iTerm2](https://iterm2.com/), [Kitty](https://sw.kovidgoyal.net/kitty/), [WezTerm](https://wezfurlong.org/wezterm/), or another [terminal emulator](https://github.com/termstandard/colors?tab=readme-ov-file#truecolor-support-in-output-devices) that has true color support.
+> **Note:** When using the default theme: For MacOS, the default terminal does not have true color support. You will need to use [iTerm2](https://iterm2.com/), [Kitty](https://sw.kovidgoyal.net/kitty/), [WezTerm](https://wezfurlong.org/wezterm/), or another [terminal emulator](https://github.com/termstandard/colors?tab=readme-ov-file#truecolor-support-in-output-devices) that has true color support.
 
 ## 🛠️ Installation
 
