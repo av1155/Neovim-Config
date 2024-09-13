@@ -186,8 +186,74 @@ return {
             focus = true,
             startinsert = true,
             filetype = {
-                html = {
-                    "cd $dir && live-server $fileName",
+                -- Scripting Languages
+                python = "cd $dir && python -u $fileName",
+                php = "cd $dir && php $fileName",
+                ruby = "cd $dir && ruby $fileName",
+                perl = "cd $dir && perl $fileName",
+                lua = "cd $dir && lua $fileName",
+                javascript = "node",
+                typescript = "deno run",
+
+                -- Web Development (including Frameworks)
+                javascriptreact = "cd $dir && npm start",
+                typescriptreact = "yarn dev",
+                html = "cd $dir && live-server $fileName",
+                coffee = "cd $dir && coffee $fileName",
+
+                -- Compiled Languages
+                c = {
+                    "cd $dir &&",
+                    "gcc -o /tmp/$fileNameWithoutExt $fileName -lcs50 &&",
+                    "/tmp/$fileNameWithoutExt &&",
+                    "rm /tmp/$fileNameWithoutExt",
+                },
+                cpp = {
+                    "cd $dir &&",
+                    "g++ $fileName",
+                    "-o /tmp/$fileNameWithoutExt &&",
+                    "/tmp/$fileNameWithoutExt",
+                },
+                java = {
+                    "cd $dir &&",
+                    "javac $fileName &&",
+                    "java $fileNameWithoutExt &&",
+                    "rm $fileNameWithoutExt.class",
+                },
+                kotlin = "cd $dir && kotlinc-native $fileName -o $fileNameWithoutExt && ./$fileNameWithoutExt.kexe",
+                rust = "cd $dir && rustc $fileName && $dir$fileNameWithoutExt",
+                go = "cd $dir && go run $fileName",
+                cs = "cd $dir && dotnet run",
+                swift = "cd $dir && swift $fileName",
+                scala = "cd $dir && scala $fileName",
+                julia = "cd $dir && julia $fileName",
+                haskell = "cd $dir && runhaskell $fileName",
+                ocaml = "cd $dir && ocaml $fileName",
+                r = "cd $dir && Rscript $fileName",
+
+                -- Shell Scripting
+                sh = "bash",
+                bash = "cd $dir && bash $fileName",
+                zsh = "cd $dir && zsh $fileName",
+                fish = "cd $dir && fish $fileName",
+            },
+
+            -- Add your project configurations here
+            project = {
+                ["~/Documents/University/UM/College_Code/CSC_120/CSC_120_LAB"] = {
+                    name = "CSC 120 Lab",
+                    description = "CSC 120 Lab Projects",
+                    command = "jcr",
+                },
+                ["~/Documents/University/UM/College_Code/CSC_120/CSC_120_Lecture"] = {
+                    name = "CSC 120 Lecture",
+                    description = "CSC 120 Lecture Projects",
+                    command = "jcr",
+                },
+                ["~/Developer/AdventOfCode"] = {
+                    name = "AdventOfCode",
+                    description = "Advent of Code Projects",
+                    command = "jcr",
                 },
             },
         },
@@ -360,8 +426,6 @@ return {
     },
 
     -- ==========================================================
-
-    -- { "folke/neodev.nvim", enabled = false }, -- make sure to uninstall or disable neodev.nvim
 
     -- {
     --     "ThePrimeagen/harpoon",

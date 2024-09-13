@@ -62,46 +62,15 @@ return {
 
                 -- Add the following line to set the dynamic Python executable for pynvim
                 python3_host_prog = "$NVIM_PYTHON_PATH",
-                -- loaded_matchparen = 1, -- disable built-in MatchParen for macOSX.
             },
         },
 
         -- Mappings can be configured through AstroCore as well.
         -- NOTE: keycodes follow the casing in the vimdocs. For example, `<Leader>` must be capitalized
 
-        -- -- first key is the mode, ex: v = visual
+        --[[ These tables are a direct conversion to the vim.keymap.set({mode}, {lhs}, {rhs}, {opts}) Lua API. The first key into the table is the {mode}, the second key into the table is the {lhs}, and the element there is the {opts} table with the {rhs} in the first key. Also AstroLSP supports adding a cond key which can dictate when the mapping should be attached. ]]
+
         mappings = {
-            --     -- second key is the lefthand side of the map, ex: <leader>
-
-            i = {},
-
-            -- Visual mode mappings
-            v = {
-                -- Gen (Ollama) plugin mappings
-                ["<leader>m"] = { name = "󰳆 Gen" },
-                ["<leader>mu"] = { ":'<,'>Gen<cr>", desc = "Open Gen UI" },
-                ["<leader>mt"] = { ":'<,'>Gen Chat<cr>", desc = "Chat" },
-                ["<leader>mg"] = { ":'<,'>Gen Generate<cr>", desc = "Generate" },
-                ["<leader>ms"] = { ":'<,'>Gen Summarize<cr>", desc = "Summarize" },
-                ["<leader>mr"] = { ":'<,'>Gen Review_Code<cr>", desc = "Review Code" },
-                ["<leader>me"] = { ":'<,'>Gen Enhance_Code<cr>", desc = "Enhance Code" },
-                ["<leader>mc"] = { ":'<,'>Gen Change_Code<cr>", desc = "Change Code" },
-                ["<leader>ma"] = { ":'<,'>Gen Ask<cr>", desc = "Ask" },
-
-                ["<leader>mm"] = { name = " Make" },
-                ["<leader>mmg"] = { ":'<,'>Gen Enhance_Grammar_Spelling<cr>", desc = "Enhance Grammar" },
-                ["<leader>mmw"] = { ":'<,'>Gen Enhance_Wording<cr>", desc = "Enhance Wording" },
-                ["<leader>mmc"] = { ":'<,'>Gen Make_Concise<cr>", desc = "Make Concise" },
-                ["<leader>mml"] = { ":'<,'>Gen Make_List<cr>", desc = "Make List" },
-                ["<leader>mmt"] = { ":'<,'>Gen Make_Table<cr>", desc = "Make Table" },
-
-                -- Code Runner mappings
-                ["<leader>r"] = { name = " Code Runner" },
-
-                -- SnipRun mappings
-                ["<leader>rs"] = { ":'<,'>SnipRun<cr>", desc = "Execute Code Snippet" },
-            },
-
             -- Normal mode mappings
             n = {
                 -- CUSTOM KEYMAPS TO SPECIFIC THINGS:
@@ -288,6 +257,36 @@ return {
                 -- -- quick save
                 -- -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
             },
+
+            -- Visual mode mappings
+            v = {
+                -- Gen (Ollama) plugin mappings
+                ["<leader>m"] = { name = "󰳆 Gen" },
+                ["<leader>mu"] = { ":'<,'>Gen<cr>", desc = "Open Gen UI" },
+                ["<leader>mt"] = { ":'<,'>Gen Chat<cr>", desc = "Chat" },
+                ["<leader>mg"] = { ":'<,'>Gen Generate<cr>", desc = "Generate" },
+                ["<leader>ms"] = { ":'<,'>Gen Summarize<cr>", desc = "Summarize" },
+                ["<leader>mr"] = { ":'<,'>Gen Review_Code<cr>", desc = "Review Code" },
+                ["<leader>me"] = { ":'<,'>Gen Enhance_Code<cr>", desc = "Enhance Code" },
+                ["<leader>mc"] = { ":'<,'>Gen Change_Code<cr>", desc = "Change Code" },
+                ["<leader>ma"] = { ":'<,'>Gen Ask<cr>", desc = "Ask" },
+
+                ["<leader>mm"] = { name = " Make" },
+                ["<leader>mmg"] = { ":'<,'>Gen Enhance_Grammar_Spelling<cr>", desc = "Enhance Grammar" },
+                ["<leader>mmw"] = { ":'<,'>Gen Enhance_Wording<cr>", desc = "Enhance Wording" },
+                ["<leader>mmc"] = { ":'<,'>Gen Make_Concise<cr>", desc = "Make Concise" },
+                ["<leader>mml"] = { ":'<,'>Gen Make_List<cr>", desc = "Make List" },
+                ["<leader>mmt"] = { ":'<,'>Gen Make_Table<cr>", desc = "Make Table" },
+
+                -- Code Runner mappings
+                ["<leader>r"] = { name = " Code Runner" },
+
+                -- SnipRun mappings
+                ["<leader>rs"] = { ":'<,'>SnipRun<cr>", desc = "Execute Code Snippet" },
+            },
+
+            -- Insert mode mappings
+            i = {},
 
             -- Terminal mode mappings
             t = {
