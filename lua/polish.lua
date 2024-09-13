@@ -53,6 +53,15 @@ end, 1000) -- Delay in milliseconds, adjust as needed
 
 -- ======================= Bux Fixes for Specific Issues ==========================
 
+-- Disable lualine for neo-tree only (fixes home screen bug)
+require("lualine").setup {
+    options = {
+        disabled_filetypes = {
+            statusline = { "neo-tree" },
+        },
+    },
+}
+
 -- require("inc_rename").setup {}
 
 -- ---@diagnostic disable-next-line: missing-fields
