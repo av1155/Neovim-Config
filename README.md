@@ -1,6 +1,4 @@
-# archbtw-hyprland-neovimConfig
-
-**NOTE:** This is for AstroNvim v4+
+# Neovim-Config
 
 A template for getting started with [AstroNvim](https://github.com/AstroNvim/AstroNvim)
 
@@ -24,6 +22,5 @@ You can also just clone this repository directly if you do not want to track you
 #### Clone the repository and Start Neovim
 
 ```bash
-git clone git@github.com:av1155/archbtw-hyprland-neovimConfig.git ~/.config/nvim && nvim
+git clone git@github.com:av1155/Neovim-Config.git ~/.config/nvim && nvim
 ```
-# Neovim-Config
