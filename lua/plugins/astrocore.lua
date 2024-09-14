@@ -61,7 +61,7 @@ return {
                 -- This can be found in the `lua/lazy_setup.lua` file
 
                 -- Add the following line to set the dynamic Python executable for pynvim
-                python3_host_prog = "$NVIM_PYTHON_PATH",
+                python3_host_prog = os.getenv "NVIM_PYTHON_PATH",
             },
         },
 
