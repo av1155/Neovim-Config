@@ -48,11 +48,16 @@ local function python_interpreter()
     if vim.bo.filetype == "python" then
         local python_path = os.getenv "NVIM_PYTHON_PATH"
         if python_path then
+            -- Check if the path belongs to an environment inside `envs/`
             local env_name = python_path:match ".*/envs/(.-)/bin/python"
             if env_name then
                 return " " .. env_name
             else
-                return " Python Env"
+                if python_path:match ".base/bin/python" then
+                    return " Base"
+                else
+                    return " Python Env"
+                end
             end
         else
             return " No Python Interpreter"
