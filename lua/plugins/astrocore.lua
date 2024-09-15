@@ -73,6 +73,9 @@ return {
         mappings = {
             -- Normal mode mappings
             n = {
+                -- OVERRIDE DEFAULT NAMES/DESCRIPTIONS BY COMMUNITY
+                ["<Leader>a"] = { desc = "󱚤 Avante" },
+
                 -- CUSTOM KEYMAPS TO SPECIFIC THINGS:
                 ["<CR>"] = { ":", desc = "Open command line", noremap = true },
                 ["<leader>s"] = { ":SearchBoxReplace<CR>", desc = "Search and Replace" },
