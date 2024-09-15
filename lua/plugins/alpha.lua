@@ -74,7 +74,7 @@ return {
             dashboard.button("t", "📜  Find text", ":Telescope live_grep <CR>"),
             dashboard.button("m", "🔖  BookMarks", ":Telescope marks <CR>"),
             dashboard.button("r", "🕘  Recently used files", ":Telescope oldfiles <CR>"),
-            dashboard.button("c", "🔧  Configuration", ":e ~/.config/nvim<CR>"),
+            dashboard.button("c", "🔧  Configuration", ":e ~/.config/nvim/<CR>"),
             dashboard.button("q", "💨  Quit Neovim", ":qa<CR>"),
             dashboard.button("u", "🚀  Check for Updates", ":AstroUpdate<CR>"),
         }
