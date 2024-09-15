@@ -112,6 +112,7 @@ return {
                             "neo-tree",
                             "alpha",
                             "Avante",
+                            "alpha",
                         },
                         winbar = {},
                     },

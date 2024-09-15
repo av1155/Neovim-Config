@@ -57,7 +57,7 @@ end, 1000) -- Delay in milliseconds, adjust as needed
 require("lualine").setup {
     options = {
         disabled_filetypes = {
-            statusline = { "neo-tree", "Avante", "AvanteInput" },
+            statusline = { "neo-tree", "Avante", "AvanteInput", "alpha" },
         },
     },
 }
