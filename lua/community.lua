@@ -209,6 +209,34 @@ return {
         event = "VeryLazy",
     },
     -- =========================================================================
+    {
+        "jay-babu/project.nvim",
+        opts = {
+            ignore_lsp = {
+                "lua_ls",
+                "null-ls",
+                "jdtls",
+            },
+            -- All the patterns used to detect root dir, when **"pattern"** is in detection_methods
+            patterns = {
+                ".git",
+                "_darcs",
+                ".hg",
+                ".bzr",
+                ".svn",
+                "Makefile",
+                "package.json",
+                "pyproject.toml",
+                "pom.xml",
+                "build.gradle",
+                "settings.gradle",
+                ".idea",
+            },
+            -- When set to false, you will get a message when project.nvim changes your directory.
+            silent_chdir = true,
+        },
+    },
+    -- =========================================================================
     { -- further customize the options set by the community
         "folke/zen-mode.nvim",
         opts = {
