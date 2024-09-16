@@ -227,13 +227,15 @@ return {
                 "Makefile",
                 "package.json",
                 "pyproject.toml",
+                ".idea",
                 "pom.xml",
                 "build.gradle",
                 "settings.gradle",
-                ".idea",
             },
             -- When set to false, you will get a message when project.nvim changes your directory.
             silent_chdir = true,
+            -- Show hidden files in telescope
+            show_hidden = true,
         },
     },
     -- =========================================================================
