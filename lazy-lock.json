@@ -112,7 +112,7 @@
   "project.nvim": { "branch": "main", "commit": "4317ce951459a53ba45ffed2495ac6752211364b" },
   "promise-async": { "branch": "main", "commit": "38a4575da9497326badd3995e768b4ccf0bb153e" },
   "rainbow-delimiters.nvim": { "branch": "master", "commit": "5f73b24aeb94f5274c218955573153c69ce4d1ee" },
-  "render-markdown.nvim": { "branch": "main", "commit": "ec21879774ffe6dca30913d977b8f22f19a0d049" },
+  "render-markdown.nvim": { "branch": "main", "commit": "f84eeaebac278e26bd2906fd47747631716a5edb" },
   "resession.nvim": { "branch": "master", "commit": "cc819b0489938d03e4f3532a583354f0287c015b" },
   "searchbox.nvim": { "branch": "main", "commit": "8dde416cabb63f6d68c8755365dcd20c65b7b3b0" },
   "smart-splits.nvim": { "branch": "master", "commit": "1a2b268a7ec7aeef879cdd15973339010ec134f7" },
