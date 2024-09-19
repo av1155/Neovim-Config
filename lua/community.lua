@@ -234,7 +234,7 @@ return {
                 "settings.gradle",
             },
             -- When set to false, you will get a message when project.nvim changes your directory.
-            silent_chdir = false,
+            silent_chdir = true,
             -- Show hidden files in telescope
             show_hidden = true,
         },
