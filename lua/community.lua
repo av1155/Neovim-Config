@@ -216,6 +216,7 @@ return {
                 "lua_ls",
                 "null-ls",
                 "jdtls",
+                "clangd",
             },
             -- All the patterns used to detect root dir, when **"pattern"** is in detection_methods
             patterns = {
@@ -233,7 +234,7 @@ return {
                 "settings.gradle",
             },
             -- When set to false, you will get a message when project.nvim changes your directory.
-            silent_chdir = true,
+            silent_chdir = false,
             -- Show hidden files in telescope
             show_hidden = true,
         },
