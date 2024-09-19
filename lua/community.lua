@@ -25,6 +25,7 @@ return {
     { import = "astrocommunity.completion.avante-nvim" },
     { import = "astrocommunity.completion.cmp-cmdline" },
     { import = "astrocommunity.completion.copilot-lua-cmp" },
+    { import = "astrocommunity.editing-support.conform-nvim" },
     { import = "astrocommunity.editing-support.chatgpt-nvim" },
     { import = "astrocommunity.editing-support.hypersonic-nvim" },
     { import = "astrocommunity.editing-support.nvim-devdocs" },

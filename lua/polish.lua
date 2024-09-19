@@ -9,14 +9,14 @@ vim.filetype.add {
     extension = {
         foo = "fooscript",
         log = "log",
-        zsh = "sh",
-        sh = "sh",
+        -- zsh = "sh",
+        -- sh = "sh",
     },
     filename = {
         ["Foofile"] = "fooscript",
-        [".zshrc"] = "sh",
-        [".zshenv"] = "sh",
-        [".zprofile"] = "sh",
+        -- [".zshrc"] = "sh",
+        -- [".zshenv"] = "sh",
+        -- [".zprofile"] = "sh",
     },
     pattern = {
         ["~/%.config/foo/.*"] = "fooscript",

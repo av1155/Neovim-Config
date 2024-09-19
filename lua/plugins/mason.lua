@@ -38,9 +38,21 @@ return {
 
             -- Add more things to the ensure_installed table protecting against community packs modifying it
             opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, {
-                "stylua",
-                "clang-format",
-                -- add more null-ls sources you want to install
+                "stylua", -- Lua
+                "clang-format", -- C, C++, Java
+                "prettier", -- JavaScript, TypeScript, HTML, CSS, JSON, YAML
+                "prettierd", -- Faster prettier daemon
+                "black", -- Python
+                "isort", -- Python imports
+                "shfmt", -- Shell scripts (bash/zsh)
+                "google-java-format", -- Java
+                "rustfmt", -- Rust
+                "gofmt", -- Go
+                "goimports", -- Go
+                "rubocop", -- Ruby
+                "ktlint", -- Kotlin
+                "taplo", -- TOML
+                "xmllint", -- XML
             })
 
             -- Remove unwanted formatters/linters based on architecture
