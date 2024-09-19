@@ -307,7 +307,7 @@ return {
                     desc = "Exit terminal mode and close floating terminal",
                 },
                 -- Map "jk" to exit terminal mode and close the floating terminal window
-                ["jk"] = {
+                ["<A-z>"] = {
                     function()
                         -- First, exit insert mode in the terminal
                         vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-\\><C-n>", true, false, true), "n", false)

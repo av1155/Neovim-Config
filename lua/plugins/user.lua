@@ -178,6 +178,10 @@ return {
 
     -- ==========================================================
 
+    { "akinsho/toggleterm.nvim", opts = { direction = "float" } },
+
+    -- ==========================================================
+
     -- Code Runner
     {
         "CRAG666/code_runner.nvim",
@@ -204,7 +208,7 @@ return {
                 -- Compiled Languages
                 c = {
                     "cd $dir &&",
-                    "gcc -o /tmp/$fileNameWithoutExt $fileName -lcs50 &&",
+                    "gcc -o /tmp/$fileNameWithoutExt $fileName &&",
                     "/tmp/$fileNameWithoutExt &&",
                     "rm /tmp/$fileNameWithoutExt",
                 },
