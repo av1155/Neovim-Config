@@ -17,81 +17,85 @@ return {
             init = { -- this table overrides highlights in all themes
                 -- Normal = { bg = "#000000" },
 
-                -- Add or modify highlight groups specifically for nvim-dap-virtual-text
+                -- =============== NVIM-DAP-VIRTUAL-TEXT ====================
                 NvimDapVirtualText = { fg = "#b58900", bg = "", italic = true },
                 NvimDapVirtualTextError = { fg = "#dc322f", bg = "", bold = true, underline = true },
                 NvimDapVirtualTextChanged = { fg = "#6c71c4", bg = "", underline = true },
 
-                -- barbar plugin for Current buffer
-                BufferCurrent = { fg = "#f28b25", bg = "" },
-                BufferCurrentIndex = { fg = "#89b4fb", bg = "" },
-                -- Setting Git status highlights with specified colors and transparent backgrounds
+                -- =================== BAR-BAR =======================
+                -- CURRENT BUFFER ///////////////////:
+                BufferCurrent = { fg = "#ef9e76", bg = "" },
+                BufferCurrentIndex = { fg = "#ff5189", bg = "" },
+                -- GIT STATUS - ACTIVE:
                 BufferCurrentAdded = { fg = "#a6e3a2", bg = "" }, -- For added files
                 BufferCurrentDeleted = { fg = "#f38ba9", bg = "" }, -- For removed files
                 BufferCurrentChanged = { fg = "#f9e2b0", bg = "" }, -- For changed files
-                -- Other:
-                BufferCurrentMod = { fg = "#f28b25", bg = "" }, -- For changed files
-                -- BufferCurrentIcon = { fg = "#foreground_color", bg = "" }, -- For changed files
+                -- FILE STATUS - ACTIVE:
+                BufferCurrentMod = { fg = "#ef9e76", bg = "" }, -- For changed files
                 BufferCurrentWARN = { fg = "#f9e2b0", bg = "" }, -- For changed files
                 BufferCurrentERROR = { fg = "#f38ba9", bg = "" }, -- For changed files
                 BufferCurrentHINT = { fg = "#93e2d6", bg = "" }, -- For changed files
                 BufferCurrentINFO = { fg = "#89dcec", bg = "" }, -- For info in files
                 BufferCurrentSign = { fg = "#89b4fb", bg = "" }, -- For changed files
                 BufferCurrentSignRight = { fg = "#89b4fb", bg = "" }, -- For changed files
+                -- BufferCurrentIndex = { fg = "#89b4fb", bg = "" },
+                -- BufferCurrent = { fg = "#f28b25", bg = "" },
+                -- BufferCurrentIcon = { fg = "#foreground_color", bg = "" }, -- For changed files
 
-                -- barbar plugin for Inactive buffers
+                -- INACTIVE BUFFERS ///////////////////:
                 BufferInactive = { fg = "#6c7087", bg = "" }, -- Foreground color for inactive buffers
                 BufferInactiveIndex = { fg = "#89b4fb", bg = "" }, -- Foreground color for inactive buffer indices
-
-                -- Setting Git status highlights with specified colors and transparent backgrounds for inactive buffers
+                -- GIT STATUS - INACTIVE:
                 BufferInactiveAdded = { fg = "#a6e3a2", bg = "" }, -- For added files in inactive buffers
                 BufferInactiveDeleted = { fg = "#f38ba9", bg = "" }, -- For removed files in inactive buffers
                 BufferInactiveChanged = { fg = "#f9e2b0", bg = "" }, -- For changed files in inactive buffers
+                -- FILE STATUS - INACTIVE:
                 BufferInactiveMod = { fg = "#f9e2b0", bg = "" }, -- For modified files in inactive buffers
-                -- BufferInactiveIcon = { fg = "#foreground_color", bg = "" }, -- Foreground color for icons in inactive buffers
                 BufferInactiveWARN = { fg = "#f9e2b0", bg = "" }, -- For warnings in inactive buffers
                 BufferInactiveERROR = { fg = "#f38ba9", bg = "" }, -- For errors in inactive buffers
                 BufferInactiveHINT = { fg = "#93e2d6", bg = "" }, -- For hints in inactive buffers
                 BufferInactiveINFO = { fg = "#89dcec", bg = "" }, -- For info in inactive files
                 BufferInactiveSign = { fg = "#89b4fb", bg = "" }, -- Foreground color for signs in inactive buffers
                 BufferInactiveSignRight = { fg = "#89b4fb", bg = "" }, -- Foreground color for right signs in inactive buffers
+                -- BufferInactiveIcon = { fg = "#foreground_color", bg = "" }, -- Foreground color for icons in inactive buffers
 
-                -- barbar plugin for Alternate buffers
-                BufferAlternate = { fg = "#f28b25", bg = "" }, -- Foreground color for alternate buffers
-
-                -- Setting Git status highlights with specified colors and transparent backgrounds for alternate buffers
+                -- ALTERNATE BUFFERS ///////////////////:
+                BufferAlternate = { fg = "#ef9e76", bg = "" }, -- Foreground color for alternate buffers
+                -- GIT STATUS - ALTERNATE:
                 BufferAlternateAdded = { fg = "#a6e3a2", bg = "" }, -- For added files in alternate buffers
                 BufferAlternateDeleted = { fg = "#f38ba9", bg = "" }, -- For removed files in alternate buffers
                 BufferAlternateChanged = { fg = "#f9e2b0", bg = "" }, -- For changed files in alternate buffers
+                -- FILE STATUS - ALTERNATE:
                 BufferAlternateMod = { fg = "#f9e2b0", bg = "" }, -- For modified files in alternate buffers
-                -- BufferAlternateIcon = { fg = "#foreground_color", bg = "" }, -- Foreground color for icons in alternate buffers
                 BufferAlternateWARN = { fg = "#f9e2b0", bg = "" }, -- For warnings in alternate buffers
                 BufferAlternateERROR = { fg = "#f38ba9", bg = "" }, -- For errors in alternate buffers
                 BufferAlternateHINT = { fg = "#93e2d6", bg = "" }, -- For hints in alternate buffers
                 BufferAlternateINFO = { fg = "#89dcec", bg = "" }, -- For info in alternate files
                 BufferAlternateSign = { fg = "#89b4fb", bg = "" }, -- Foreground color for signs in alternate buffers
                 BufferAlternateSignRight = { fg = "#89b4fb", bg = "" }, -- Foreground color for right signs in alternate buffers
+                -- BufferAlternateIcon = { fg = "#foreground_color", bg = "" }, -- Foreground color for icons in alternate buffers
 
-                -- barbar plugin for Visible buffers
-                BufferVisible = { fg = "#f28b25", bg = "" }, -- Foreground color for visible buffers
+                -- VISIBLE BUFFERS///////////////////:
+                BufferVisible = { fg = "#8caaee", bg = "" }, -- Foreground color for visible buffers
+                -- BufferVisible = { fg = "#f28b25", bg = "" }, -- Foreground color for visible buffers
 
-                -- Setting Git status highlights with specified colors and transparent backgrounds for visible buffers
+                -- GIT STATUS - VISIBLE:
                 BufferVisibleAdded = { fg = "#a6e3a2", bg = "" }, -- For added files in visible buffers
                 BufferVisibleDeleted = { fg = "#f38ba9", bg = "" }, -- For removed files in visible buffers
                 BufferVisibleChanged = { fg = "#f9e2b0", bg = "" }, -- For changed files in visible buffers
+                -- FILE STATUS - VISIBLE:
                 BufferVisibleMod = { fg = "#f9e2b0", bg = "" }, -- For modified files in visible buffers
-                -- BufferVisibleIcon = { fg = "#foreground_color", bg = "" }, -- Foreground color for icons in visible buffers
                 BufferVisibleWARN = { fg = "#f9e2b0", bg = "" }, -- For warnings in visible buffers
                 BufferVisibleERROR = { fg = "#f38ba9", bg = "" }, -- For errors in visible buffers
                 BufferVisibleHINT = { fg = "#93e2d6", bg = "" }, -- For hints in visible buffers
                 BufferVisibleINFO = { fg = "#89dcec", bg = "" }, -- For info in files
                 BufferVisibleSign = { fg = "#89b4fb", bg = "" }, -- Foreground color for signs in visible buffers
                 BufferVisibleSignRight = { fg = "#89b4fb", bg = "" }, -- Foreground color for right signs in visible buffers
+                -- BufferVisibleIcon = { fg = "#foreground_color", bg = "" }, -- Foreground color for icons in visible buffers
 
-                -- Cursor
-                CursorLine = { bg = "#3a3c47" },
-                -- Set the visual selection color
-                Visual = {
+                -- ========================= CURSOR ======================
+                CursorLine = { bg = "#3a3c47" }, -- Cursor Color
+                Visual = { -- Visual Seelect Color
                     bg = "#775d46" --[[ , fg = "#ffffff" ]],
                 },
 
@@ -101,7 +105,7 @@ return {
                 -- WinBar = { fg = "#5c6370", bg = "#1e222a" },
                 -- WinBarNC = { fg = "#5c6370", bg = "#1e222a" },
 
-                --VS code cmp
+                -- =================== VS CODE CMP ===================
                 CmpItemKindConstructor = { fg = "#f28b25" },
                 CmpItemKindUnit = { fg = "#D4D4D4" },
                 CmpItemKindProperty = { fg = "#D4D4D4" },
@@ -157,12 +161,14 @@ return {
                 AerialTypeParameter = { fg = "#9CDCFE" },
                 AerialVariableIcon = { fg = "#9CDCFE" },
                 AerialGuide = { fg = "#777d86" },
-                -- Spell
+
+                -- ============ SPELLING =================
                 SpellBad = { sp = "#ffbba6", undercurl = true },
                 SpellCap = { sp = "#ffbba6", undercurl = true },
                 SpellLocal = { sp = "#ffbba6", undercurl = true },
                 SpellRare = { sp = "#ffbba6", undercurl = true },
-                -- Inlay hint
+
+                -- ============ LSP INLAY HINTS ============
                 LspInlayHint = {
                     fg = "#8f939b",
                     -- fg = "#D4D4D4",
@@ -173,7 +179,8 @@ return {
                     -- #8f939b In-Between
                     -- #4b5263 Original
                 },
-                -- Indentline
+
+                -- ============= INDENT BLANKLINE ==============
                 IndentBlanklineSpaceChar = { fg = "#3b4048", nocombine = true },
                 IndentBlanklineChar = { fg = "#3b4048", nocombine = true },
                 IndentBlanklineContextStart = { fg = "#5c5c5c", underline = true },
