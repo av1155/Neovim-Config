@@ -296,17 +296,8 @@ return {
                 -- -- Add your terminal mode mappings here
                 -- -- setting a mapping to false will disable it
                 -- ["<esc>"] = false,
-                -- Map <esc> to exit terminal mode and close the floating terminal window
-                ["<esc>"] = {
-                    function()
-                        -- First, exit insert mode in the terminal
-                        vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-\\><C-n>", true, false, true), "n", false)
-                        -- Then, close the terminal window
-                        vim.cmd "ToggleTermToggleAll"
-                    end,
-                    desc = "Exit terminal mode and close floating terminal",
-                },
-                -- Map "jk" to exit terminal mode and close the floating terminal window
+
+                -- Map "alt+z" to exit terminal mode and close the floating terminal window
                 ["<A-z>"] = {
                     function()
                         -- First, exit insert mode in the terminal

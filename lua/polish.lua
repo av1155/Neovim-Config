@@ -70,8 +70,27 @@ require("lualine").setup {
 -- }
 
 -- ========================= Unmapping and Mapping =================================
+local keymap = vim.keymap
+local opts = { noremap = true, silent = true }
 
--- local opts = { noremap = true, silent = true }
+-- Copying to system clipboard
+-- Copy entire file to system clipboard (normal mode)
+keymap.set({ "n" }, "<C-c>", ":%y+<CR>", opts)
+-- Current selection (visual mode)
+keymap.set({ "v" }, "<C-c>", '"+y')
+
+-- Cutting to system clipboard
+-- Delete entire file (normal mode)
+keymap.set({ "n" }, "<C-x>", ":%d<CR>", opts)
+-- Current selection (visual mode)
+keymap.set({ "v" }, "<C-x>", '"+d')
+
+-- Increment numbers with + and decrement numbers with =
+keymap.set({ "n" }, "+", "<C-a>", opts)
+keymap.set({ "n" }, "=", "<C-x>", opts)
+-- Increment numbers with + and decrement numbers with = in visual mode
+keymap.set({ "v" }, "+", "g<C-a>`<gv", opts) -- Re-select after increment
+keymap.set({ "v" }, "=", "g<C-x>`<gv", opts) -- Re-select after decrement
 
 -- local map = vim.api.nvim_set_keymap
 -- -- Allow gf to work for non-existing files
