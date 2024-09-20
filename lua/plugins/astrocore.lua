@@ -90,8 +90,8 @@ return {
                 ["<leader>lu"] = { "<Cmd>DBUIToggle<Cr>", desc = "Dadbod UI" },
 
                 -- Buffer navigation and management
-                ["<A-,>"] = { "<Cmd>BufferPrevious<CR>", desc = "Move to previous buffer" },
-                ["<A-.>"] = { "<Cmd>BufferNext<CR>", desc = "Move to next buffer" },
+                ["<s-tab>"] = { "<Cmd>BufferPrevious<CR>", desc = "Move to previous buffer" },
+                ["<tab>"] = { "<Cmd>BufferNext<CR>", desc = "Move to next buffer" },
                 ["<A-<>"] = { "<Cmd>BufferMovePrevious<CR>", desc = "Re-order to previous buffer" },
                 ["<A->>"] = { "<Cmd>BufferMoveNext<CR>", desc = "Re-order to next buffer" },
                 ["<A-1>"] = { "<Cmd>BufferGoto 1<CR>", desc = "Goto buffer 1" },
