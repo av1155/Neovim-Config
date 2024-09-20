@@ -159,6 +159,22 @@ vim.api.nvim_create_autocmd({ "InsertEnter", "WinLeave" }, {
 
 -- ================================================================================
 
+-- -- Autocommand to ensure you're always in insert mode in toggleterm buffers
+-- vim.api.nvim_create_autocmd({ "TermOpen", "BufEnter", "WinEnter" }, {
+--     pattern = "term://*",
+--     callback = function() vim.cmd "startinsert" end,
+-- })
+--
+-- -- Autocommand to force insert mode even if you switch to normal mode
+-- vim.api.nvim_create_autocmd({ "TermLeave", "InsertLeave" }, {
+--     pattern = "term://*",
+--     callback = function()
+--         if vim.bo.filetype == "toggleterm" then vim.cmd "startinsert" end
+--     end,
+-- })
+
+-- ================================================================================
+
 -- Code to disable semantic tokens provider (Uncomment to use)
 -- vim.api.nvim_create_autocmd("LspAttach", {
 --   callback = function(args)
