@@ -188,7 +188,7 @@ return {
         opts = {
             mode = "toggleterm",
             focus = true,
-            startinsert = true,
+            startinsert = false,
             filetype = {
                 -- Scripting Languages
                 python = "cd $dir && python -u $fileName",
