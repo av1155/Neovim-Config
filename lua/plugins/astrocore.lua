@@ -80,7 +80,7 @@ return {
                 ["<CR>"] = { ":", desc = "Open command line", noremap = true },
                 ["<leader>s"] = { ":SearchBoxReplace<CR>", desc = "Search and Replace" },
                 ["<leader>`"] = { "<Cmd>Oil<CR>", desc = "Open Oil" },
-                ["<A-s>"] = { "<Cmd>w<CR>", desc = "Save" },
+                -- ["<A-s>"] = { "<Cmd>w<CR>", desc = "Save" }, -- set to C-s in polish.lua
                 ["<leader>f"] = { name = "󰍉 Find" },
                 -- Bindings for split windows
                 ["\\"] = { "<cmd>vsplit<CR>", desc = "Vertical Split" },

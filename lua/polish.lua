@@ -92,6 +92,9 @@ keymap.set({ "n" }, "=", "<C-x>", opts)
 keymap.set({ "v" }, "+", "g<C-a>`<gv", opts) -- Re-select after increment
 keymap.set({ "v" }, "=", "g<C-x>`<gv", opts) -- Re-select after decrement
 
+-- Save with <C-s>
+keymap.set({ "n" }, "<C-s>", ":w<CR>", opts)
+
 -- local map = vim.api.nvim_set_keymap
 -- -- Allow gf to work for non-existing files
 -- map("n", "gf", ":edit <cfile><cr>", { desc = "Edit file" })
