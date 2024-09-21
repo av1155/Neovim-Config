@@ -8,7 +8,7 @@ local colors = {
     black      = '',
     white      = '#c6c6c6',
     red        = '#ff5189',
-    violet     = '#d183e8',
+    pink     = '#F4B8E4',
     grey       = '#303030',
     muted_blue = '#5f87af', -- A muted blue color
     dark_grey  = '#262626', -- A new dark grey color for better contrast
@@ -17,7 +17,7 @@ local colors = {
 
 local bubbles_theme = {
     normal = {
-        a = { fg = colors.dark_grey, bg = colors.violet, gui = "bold" },
+        a = { fg = colors.dark_grey, bg = colors.pink, gui = "bold" },
         b = { fg = colors.white, bg = colors.grey },
         c = { fg = colors.black, bg = colors.black },
         z = { fg = colors.white, bg = colors.muted_blue },

@@ -99,6 +99,17 @@ return {
                     bg = "#775d46" --[[ , fg = "#ffffff" ]],
                 },
 
+                -- ======================== Line Number =================
+                -- LineNr = { fg = "#8f939b", bg = "" }, -- non-active line numbers
+
+                -- ================ NEO-TREE ============================
+
+                -- Hidden files (dotfiles)
+                -- NeoTreeDotfile = { fg = "#4b5263", bg = "" },
+                -- NeoTreeHiddenByName = { fg = "#4b5263", bg = "" },
+                --
+                -- ========================================================
+
                 -- BufferLineTabClose = { fg = "#1e222a", bg = "#1e222a" },
                 -- BufferLineBufferSelected = { fg = "#abb2bf", bg = "#1e222a" },
                 -- NormalNC = { fg = "#abb2bf", bg = "#1e222a" },
