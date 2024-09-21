@@ -100,13 +100,13 @@ return {
                 },
 
                 -- ======================== Line Number =================
-                -- LineNr = { fg = "#8f939b", bg = "" }, -- non-active line numbers
+                -- LineNr = { fg = "#A8A8A8", bg = "" }, -- non-active line numbers
 
                 -- ================ NEO-TREE ============================
 
                 -- Hidden files (dotfiles)
-                -- NeoTreeDotfile = { fg = "#4b5263", bg = "" },
-                -- NeoTreeHiddenByName = { fg = "#4b5263", bg = "" },
+                NeoTreeDotfile = { fg = "#A8A8A8", bg = "" },
+                NeoTreeHiddenByName = { fg = "#A8A8A8", bg = "" },
                 --
                 -- ========================================================
 
