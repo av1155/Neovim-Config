@@ -58,7 +58,7 @@ return {
             -- Remove unwanted formatters/linters based on architecture
             opts.ensure_installed = vim.tbl_filter(function(source)
                 if arch == "aarch64" then
-                    return source ~= "selene" and source ~= "lemminx"
+                    return source ~= "rustfmt" and source ~= "selene" and source ~= "lemminx"
                 else
                     return true
                 end
