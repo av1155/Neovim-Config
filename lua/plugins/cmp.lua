@@ -5,8 +5,8 @@ return {
         "hrsh7th/cmp-emoji",
         "jc-doyle/cmp-pandoc-references",
         "kdheepak/cmp-latex-symbols",
-        "zbirenbaum/copilot-cmp",
         "f3fora/cmp-spell",
+        { "zbirenbaum/copilot-cmp", lazy = true },
     },
     opts = function(_, opts)
         local cmp = require "cmp"
@@ -23,7 +23,7 @@ return {
 
         -- Directly set the opts table instead of using extend_tbl
         opts.sources = cmp.config.sources {
-            { name = "copilot", priority = 1000 },
+            -- { name = "copilot", priority = 1000 },
             { name = "nvim_lsp", priority = 950 },
             { name = "luasnip", priority = 900 },
             { name = "latex_symbols", priority = 800 },

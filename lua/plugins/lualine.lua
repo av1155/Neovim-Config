@@ -91,6 +91,42 @@ local function lsp_status()
     end
 end
 
+local function is_copilot_cmp_active()
+    local cmp = require "cmp"
+    -- Check if copilot is in the cmp sources for the current buffer
+    local sources = cmp.get_config().sources
+    for _, source in ipairs(sources) do
+        if source.name == "copilot" then return true end
+    end
+    return false
+end
+
+local function toggle_copilot_cmp()
+    local cmp = require "cmp"
+    if is_copilot_cmp_active() then
+        -- Disable Copilot-CMP by filtering it out of the sources
+        cmp.setup.buffer {
+            sources = vim.tbl_filter(function(source) return source.name ~= "copilot" end, cmp.get_config().sources),
+        }
+        vim.notify("Copilot-CMP Disabled", vim.log.levels.INFO) -- Notify the user
+    else
+        -- Enable Copilot-CMP by adding it to the sources
+        require("copilot_cmp").setup()
+        cmp.setup.buffer {
+            sources = { { name = "copilot" }, unpack(cmp.get_config().sources) },
+        }
+        vim.notify("Copilot-CMP Enabled", vim.log.levels.INFO) -- Notify the user
+    end
+end
+
+local function copilot_cmp_status()
+    if is_copilot_cmp_active() then
+        return "" -- Enabled icon
+    else
+        return "" -- Disabled icon
+    end
+end
+
 return {
     {
         "nvim-lualine/lualine.nvim",
@@ -159,11 +195,24 @@ return {
                                 if vim.bo.buftype == "" then vim.cmd "LspInfo" end
                             end,
                         },
+                        -- {
+                        --     "copilot",
+                        --     show_colors = true,
+                        --     on_click = function()
+                        --         if vim.bo.buftype == "" then vim.cmd "Copilot toggle" end
+                        --     end,
+                        -- },
                         {
-                            "copilot",
-                            show_colors = true,
+                            copilot_cmp_status, -- Displays only the icon
+                            color = function()
+                                if is_copilot_cmp_active() then
+                                    return { fg = "#6CC644" } -- Green for enabled
+                                else
+                                    return { fg = "#6371A4" } -- Grey for disabled
+                                end
+                            end,
                             on_click = function()
-                                if vim.bo.buftype == "" then vim.cmd "Copilot panel" end
+                                toggle_copilot_cmp() -- Toggle Copilot-CMP on click
                             end,
                         },
                     },

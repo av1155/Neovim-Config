@@ -13,7 +13,7 @@ return {
         -- Configure core features of AstroNvim
         features = {
             large_buf = { size = 1024 * 500, lines = 10000 }, -- set global limits for large files for disabling features like treesitter
-            autopairs = false, -- enable autopairs at start
+            autopairs = true, -- enable autopairs at start
             cmp = true, -- enable completion at start
             diagnostics_mode = 3, -- diagnostic mode on start (0 = off, 1 = no signs/virtual text, 2 = no virtual text, 3 = on)
             highlighturl = true, -- highlight URLs at start
@@ -158,11 +158,24 @@ return {
                 ["<leader>ZT"] = { "<cmd>Copilot toggle<cr>", desc = "Toggle Copilot" },
                 ["<leader>ZS"] = { "<cmd>Copilot status<cr>", desc = "Show Copilot Status" },
                 ["<leader>ZV"] = { "<cmd>Copilot version<cr>", desc = "Show Copilot Version" },
-
                 ["<leader>ZZ"] = { name = " Menu" },
                 ["<leader>ZZS"] = { "<cmd>Copilot suggestion<cr>", desc = "Trigger Copilot Suggestion" },
                 ["<leader>ZZA"] = { "<cmd>Copilot attach<cr>", desc = "Attach Copilot to Buffer" },
                 ["<leader>ZZD"] = { "<cmd>Copilot detach<cr>", desc = "Detach Copilot from Buffer" },
+
+                ["<leader>Ze"] = { -- Custom keybinding for enabling copilot-cmp manually
+                    [[:lua require("copilot_cmp").setup(); require("cmp").setup.buffer { sources = { { name = "copilot" }, unpack(require("cmp").get_config().sources) } }<CR>]],
+                    desc = "Enable Copilot-CMP for current buffer",
+                    noremap = true,
+                    silent = true,
+                },
+
+                ["<leader>Zd"] = { -- Custom keybinding for disabling copilot-cmp
+                    [[:lua require("cmp").setup.buffer { sources = vim.tbl_filter(function(source) return source.name ~= "copilot" end, require("cmp").get_config().sources) }<CR>]],
+                    desc = "Disable Copilot-CMP for current buffer",
+                    noremap = true,
+                    silent = true,
+                },
 
                 -- Code Runner mappings
                 ["<leader>r"] = { name = " Code Runner" },
