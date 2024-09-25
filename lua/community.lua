@@ -277,6 +277,9 @@ return {
                 bg_theme = "default",
                 has_breadcrumbs = true,
                 breadcrumbs_separator = "/",
+                bg_x_padding = 30,
+                bg_y_padding = 20,
+                bg_padding = 0, -- Remove padding and make transparent
             }
         end,
     },
