@@ -208,7 +208,7 @@ return {
                 -- Compiled Languages
                 c = {
                     "cd $dir &&",
-                    "gcc -o /tmp/$fileNameWithoutExt $fileName &&",
+                    "gcc -Wall -O2 -o /tmp/$fileNameWithoutExt $fileName &&",
                     "/tmp/$fileNameWithoutExt &&",
                     "rm /tmp/$fileNameWithoutExt",
                 },
