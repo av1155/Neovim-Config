@@ -11,7 +11,7 @@
   "astrocommunity": { "branch": "main", "commit": "c87c236dce71107637d2fc30e9dcc116d5d60097" },
   "astrocore": { "branch": "main", "commit": "d687e4b66b93783dfdafee1e64d363b7706056ff" },
   "astrolsp": { "branch": "main", "commit": "5d92b868586c4b79298003b307e8dc3e9a357816" },
-  "astrotheme": { "branch": "main", "commit": "53d093f172c7beb72bae5c0a350880223c2735de" },
+  "astrotheme": { "branch": "main", "commit": "4fd678a3eac7712ffe2d9e964563066dbb97aa0f" },
   "astroui": { "branch": "main", "commit": "7adeb60d76939d3cd66c9852e0e8621bd42014dd" },
   "avante.nvim": { "branch": "main", "commit": "134609a04cbbe6eb031c1aa3f8f54d3e3fadd043" },
   "barbar.nvim": { "branch": "master", "commit": "ca1326f7d87acfd47b0cbeeb3bef98cec73a92be" },
