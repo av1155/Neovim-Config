@@ -86,6 +86,18 @@ return {
                 ["\\"] = { "<cmd>vsplit<CR>", desc = "Vertical Split" },
                 ["-"] = { "<cmd>split<CR>", desc = "Horizontal Split" },
 
+                ["<leader>ge"] = {
+                    function()
+                        -- Insert the Go error handling snippet
+                        vim.api.nvim_put({
+                            "if err != nil {",
+                            "    return err",
+                            "}",
+                        }, "l", true, true)
+                    end,
+                    desc = "Insert Go error handling if statement",
+                },
+
                 -- Dadbod:
                 ["<leader>lu"] = { "<Cmd>DBUIToggle<Cr>", desc = "Dadbod UI" },
 
