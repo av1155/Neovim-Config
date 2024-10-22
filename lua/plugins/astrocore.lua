@@ -88,14 +88,20 @@ return {
 
                 ["<leader>ge"] = {
                     function()
-                        -- Insert the Go error handling snippet
+                        -- Insert the Go error handling snippet with a print statement
                         vim.api.nvim_put({
                             "if err != nil {",
                             "    return err",
                             "}",
                         }, "l", true, true)
+
+                        -- Get the current cursor position
+                        local pos = vim.api.nvim_win_get_cursor(0)
+
+                        -- Place the cursor in the middle of the block for further edits
+                        vim.api.nvim_win_set_cursor(0, { pos[1] - 2, 4 })
                     end,
-                    desc = "Insert Go error handling if statement",
+                    desc = "Insert Go error handling with print statement",
                 },
 
                 -- Dadbod:
