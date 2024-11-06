@@ -201,11 +201,13 @@ return {
                 ["<leader>rc"] = { "<cmd>RunClose<cr>", desc = "Close runner" },
                 ["<leader>rp"] = { "<cmd>RunProject<cr>", desc = "Run Project" },
                 ["<leader>rf"] = { "<cmd>RunFile<cr>", desc = "Run current file" },
+
                 -- Compiler mappings
                 ["<leader>ro"] = { "<cmd>CompilerOpen<cr>", desc = "Open Compiler" },
                 ["<leader>rt"] = { "<cmd>CompilerToggleResults<cr>", desc = "Toggle Compiler Results" },
                 ["<leader>rx"] = { "<cmd>CompilerRedo<cr>", desc = "Redo Compiler" },
                 ["<leader>rk"] = { "<cmd>CompilerStop<cr>", desc = "Stop Compiler Tasks" },
+
                 -- SnipRun mappings
                 ["<leader>rs"] = { "<cmd>SnipRun<cr>", desc = "Execute Code Snippet" },
                 ["<leader>ri"] = { "<cmd>SnipInfo<cr>", desc = "Snippet Info" },
@@ -221,6 +223,9 @@ return {
                     end,
                     desc = "JavaCompileRun Script",
                 },
+
+                -- Flutter-specific mappings
+                ["<leader>rg"] = { "<cmd>Telescope flutter commands<CR>", desc = "Flutter commands" },
 
                 -- Toggle Terminal
                 ["<A-z>"] = { "<cmd>ToggleTerm direction=float<CR>", desc = "Toggle Terminal" },

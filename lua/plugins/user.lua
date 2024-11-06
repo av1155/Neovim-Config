@@ -407,6 +407,18 @@ return {
     -- ==========================================================
 
     {
+        "nvim-flutter/flutter-tools.nvim",
+        lazy = false,
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            "stevearc/dressing.nvim", -- optional for vim.ui.select
+        },
+        config = true,
+    },
+
+    -- ==========================================================
+
+    {
         "folke/lazydev.nvim",
         ft = "lua", -- only load on lua files
         opts = {
