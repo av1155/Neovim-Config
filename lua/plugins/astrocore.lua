@@ -86,6 +86,16 @@ return {
                 ["\\"] = { "<cmd>vsplit<CR>", desc = "Vertical Split" },
                 ["-"] = { "<cmd>split<CR>", desc = "Horizontal Split" },
 
+                -- Open yazi in a floating terminal
+                ["<leader>y"] = {
+                    function()
+                        local Terminal = require("toggleterm.terminal").Terminal
+                        local yazi = Terminal:new { cmd = "yazi", hidden = true, direction = "float" }
+                        yazi:toggle()
+                    end,
+                    desc = "Open Yazi file manager",
+                },
+
                 ["<leader>ge"] = {
                     function()
                         -- Insert the Go error handling snippet with a print statement
