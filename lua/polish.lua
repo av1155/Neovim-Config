@@ -148,6 +148,14 @@ vim.api.nvim_create_autocmd({ "TextChanged", "InsertLeave" }, {
 
 -- ================================================================================
 
+-- Automatically enable CsvView when opening CSV files
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "csv",
+    command = "CsvViewEnable",
+})
+
+-- ================================================================================
+
 -- Show cursor line only in active window, except for neo-tree buffer
 vim.api.nvim_create_autocmd({ "InsertLeave", "WinEnter" }, {
     callback = function()
