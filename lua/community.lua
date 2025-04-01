@@ -433,6 +433,10 @@ return {
                     },
                     opts = { skip = true },
                 },
+                { -- skip img-clip warning when using cmd+v
+                    filter = { event = "notify", find = "Content is not an image" },
+                    opts = { skip = true },
+                },
             },
         },
     },
