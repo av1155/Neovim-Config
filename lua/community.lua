@@ -437,6 +437,20 @@ return {
                     filter = { event = "notify", find = "Content is not an image" },
                     opts = { skip = true },
                 },
+                { -- skip ufo treesitter 'range' nil error
+                    filter = {
+                        event = "msg_show",
+                        find = "attempt to call method 'range'",
+                    },
+                    opts = { skip = true },
+                },
+                { -- skip ufo treesitter 'range' nil error
+                    filter = {
+                        event = "msg_show",
+                        find = "vim.lsp.buf_get_clients()",
+                    },
+                    opts = { skip = true },
+                },
             },
         },
     },

@@ -460,6 +460,8 @@ return {
 
     {
         "saghen/blink.cmp",
+        enabled = false,
+
         -- optional: provides snippets for the snippet source
         dependencies = { "rafamadriz/friendly-snippets" },
 
