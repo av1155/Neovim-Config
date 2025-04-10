@@ -75,13 +75,14 @@ return {
             n = {
                 -- OVERRIDE DEFAULT NAMES/DESCRIPTIONS BY COMMUNITY
                 ["<Leader>a"] = { desc = "󱚤 Avante" },
+                ["<leader>f"] = { name = "󰍉 Find" },
 
                 -- CUSTOM KEYMAPS TO SPECIFIC THINGS:
                 ["<CR>"] = { ":", desc = "Open command line", noremap = true },
                 ["<leader>s"] = { ":SearchBoxReplace<CR>", desc = "Search and Replace" },
-                ["<leader>`"] = { "<Cmd>Oil<CR>", desc = "Open Oil" },
+                ["<leader>W"] = { ":noautocmd w<CR>", desc = "Save without formatting" },
                 -- ["<A-s>"] = { "<Cmd>w<CR>", desc = "Save" }, -- set to C-s in polish.lua
-                ["<leader>f"] = { name = "󰍉 Find" },
+
                 -- Bindings for split windows
                 ["\\"] = { "<cmd>vsplit<CR>", desc = "Vertical Split" },
                 ["-"] = { "<cmd>split<CR>", desc = "Horizontal Split" },
@@ -95,6 +96,8 @@ return {
                     end,
                     desc = "Open Yazi file manager",
                 },
+
+                ["<leader>`"] = { "<Cmd>Oil<CR>", desc = "Open Oil" },
 
                 ["<leader>ge"] = {
                     function()
