@@ -104,6 +104,8 @@ return {
                 -- LineNr = { fg = "#A8A8A8", bg = "" }, -- non-active line numbers
 
                 -- ================ NEO-TREE ============================
+                NeoTreeTabSeparatorInactive = { fg = "#313244", bg = "#1e1e2e" },
+                NeoTreeTabSeparatorActive = { fg = "#45475a", bg = "#1e1e2e" },
 
                 -- Hidden files (dotfiles)
                 NeoTreeDotfile = { fg = "#A8A8A8", bg = "" },

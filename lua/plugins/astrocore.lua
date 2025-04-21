@@ -249,6 +249,7 @@ return {
 
                 -- Telescope mappings
                 ["<leader>T"] = { name = " Telescope" },
+                ["<leader>f/"] = { "<cmd>Telescope current_buffer_fuzzy_find<cr>", desc = "Find words in current buffer" },
                 ["<leader>Tc"] = { "<cmd>Telescope neoclip<cr>", desc = "Clipboard manager" },
                 ["<leader>Td"] = { "<cmd>TodoTelescope<cr>", desc = "Open TODOs in Telescope" },
                 ["<leader>Tf"] = { "<cmd>TodoQuickFix<cr>", desc = "Show TODOs in Quickfix" },
@@ -267,16 +268,16 @@ return {
                 ["<leader>MC"] = { "<cmd>MarkdownPreviewStop<cr>", desc = "Close Markdown Preview" },
                 ["<leader>MR"] = { "<cmd>RenderMarkdown toggle<cr>", desc = "Toggle Markdown Render On or Off" },
 
-                ["<Leader>c"] = {
-                    function()
-                        local bufs = vim.fn.getbufinfo { buflisted = 1 }
-                        require("astrocore.buffer").close(0)
-                        if require("astrocore").is_available "alpha-nvim" and not bufs[2] then require("alpha").start() end
-                    end,
-                    desc = "Close buffer",
-                },
+                -- ["<Leader>c"] = {
+                --     function()
+                --         local bufs = vim.fn.getbufinfo { buflisted = 1 }
+                --         require("astrocore.buffer").close(0)
+                --         if require("astrocore").is_available "alpha-nvim" and not bufs[2] then require("alpha").start() end
+                --     end,
+                --     desc = "Close buffer",
+                -- },
 
-                ["<Leader>C"] = {
+                ["<Leader>c"] = {
                     function()
                         local bufs = vim.fn.getbufinfo { buflisted = 1 }
                         require("astrocore.buffer").close(0, true)
