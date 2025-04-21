@@ -268,16 +268,16 @@ return {
                 ["<leader>MC"] = { "<cmd>MarkdownPreviewStop<cr>", desc = "Close Markdown Preview" },
                 ["<leader>MR"] = { "<cmd>RenderMarkdown toggle<cr>", desc = "Toggle Markdown Render On or Off" },
 
-                -- ["<Leader>c"] = {
-                --     function()
-                --         local bufs = vim.fn.getbufinfo { buflisted = 1 }
-                --         require("astrocore.buffer").close(0)
-                --         if require("astrocore").is_available "alpha-nvim" and not bufs[2] then require("alpha").start() end
-                --     end,
-                --     desc = "Close buffer",
-                -- },
-
                 ["<Leader>c"] = {
+                    function()
+                        local bufs = vim.fn.getbufinfo { buflisted = 1 }
+                        require("astrocore.buffer").close(0)
+                        if require("astrocore").is_available "alpha-nvim" and not bufs[2] then require("alpha").start() end
+                    end,
+                    desc = "Close buffer",
+                },
+
+                ["<Leader>C"] = {
                     function()
                         local bufs = vim.fn.getbufinfo { buflisted = 1 }
                         require("astrocore.buffer").close(0, true)
