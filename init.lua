@@ -1,3 +1,22 @@
+-- Neovim 0.11+ compat: redirect deprecated buf_get_clients to get_clients
+do
+    local get_clients = vim.lsp.get_clients or vim.lsp.get_active_clients
+    if type(vim.lsp.buf_get_clients) == "function" and type(get_clients) == "function" then
+        vim.lsp.buf_get_clients = function(bufnr)
+            local list = get_clients { bufnr = bufnr }
+            local out = {}
+            for _, c in pairs(list or {}) do
+                out[#out + 1] = c
+            end
+            return out
+        end
+    end
+end
+
+-- Guard cwd to avoid vim/fs.lua ENOENT when starting in a deleted dir
+local ok, cwd = pcall(vim.fn.getcwd)
+if not ok or vim.fn.isdirectory(cwd) == 0 then pcall(vim.cmd.cd, vim.env.HOME or "~") end
+
 -- This file simply bootstraps the installation of Lazy.nvim and then calls other files for execution
 -- This file doesn't necessarily need to be touched, BE CAUTIOUS editing this file and proceed at your own risk.
 local lazypath = vim.env.LAZY or vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
@@ -11,8 +30,8 @@ vim.opt.rtp:prepend(lazypath)
 if not pcall(require, "lazy") then
   -- stylua: ignore
   vim.api.nvim_echo({ { ("Unable to load lazy from: %s\n"):format(lazypath), "ErrorMsg" }, { "Press any key to exit...", "MoreMsg" } }, true, {})
-  vim.fn.getchar()
-  vim.cmd.quit()
+    vim.fn.getchar()
+    vim.cmd.quit()
 end
 
 require "lazy_setup"

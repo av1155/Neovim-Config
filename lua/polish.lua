@@ -26,7 +26,8 @@ vim.filetype.add {
 -- ================================================================================
 
 -- setup nvim-dap-repl-highlights or else the dap_repl parser won't be found
-require("nvim-dap-repl-highlights").setup()
+local ok, replhl = pcall(require, "nvim-dap-repl-highlights")
+if ok then replhl.setup() end
 local dap = require "dap"
 dap.configurations.java = {
     {
@@ -105,17 +106,19 @@ keymap.set({ "n" }, "<C-s>", ":w<CR>", opts)
 -- map("n", "<f9>", ":cnext<cr>", { desc = "Next item in quickfix list" })
 -- map("n", "<leader>qf", ":lua hu_toggle_qf()<cr>", { desc = "Toggle quickfix list" })
 
-local unmap = vim.api.nvim_del_keymap
+local function safe_del(mode, lhs)
+    pcall(vim.keymap.del, mode, lhs) -- ignores E31 if not mapped
+end
 
 -- Undo some AstroNvim mappings:
-unmap("n", "<leader>bse")
-unmap("n", "<leader>bsi")
-unmap("n", "<leader>bsm")
-unmap("n", "<leader>bsp")
-unmap("n", "<leader>bsr")
-unmap("n", "<leader>Mp")
-unmap("n", "<leader>Ms")
-unmap("n", "<leader>Mt")
+safe_del("n", "<leader>bse")
+safe_del("n", "<leader>bsi")
+safe_del("n", "<leader>bsm")
+safe_del("n", "<leader>bsp")
+safe_del("n", "<leader>bsr")
+safe_del("n", "<leader>Mp")
+safe_del("n", "<leader>Ms")
+safe_del("n", "<leader>Mt")
 -- unmap("n", "<leader>u")
 -- unmap("n", "<C-q>")
 -- unmap("n", "<C-s>")

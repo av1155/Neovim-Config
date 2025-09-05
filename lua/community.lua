@@ -470,84 +470,44 @@ return {
         },
     },
     -- =========================================================================
-    { -- further customize the options set by the community
+    {
         "mfussenegger/nvim-jdtls",
-        opts = {
-            single_file_support = true,
-            root_dir = vim.fs.dirname(vim.fs.find({ ".idea", "gradlew", ".git", "mvnw" }, { upward = true })[1]) or vim.fn.getcwd(),
-            capabilities = {
-                workspace = {
-                    configuration = true,
-                },
-                textDocument = {
-                    completion = {
-                        completionItem = {
-                            snippetSupport = true,
-                        },
+        opts = function()
+            local util = require "lspconfig.util"
+            return {
+                single_file_support = true,
+                root_dir = function(fname)
+                    return util.root_pattern(".git", "mvnw", "gradlew", "pom.xml", "build.gradle", ".idea")(fname) or vim.fn.getcwd()
+                end,
+                capabilities = {
+                    workspace = { configuration = true },
+                    textDocument = {
+                        completion = { completionItem = { snippetSupport = true } },
                     },
                 },
-            },
-        },
+            }
+        end,
     },
     -- =========================================================================
+    -- Avante.nvim
     {
         "yetone/avante.nvim",
-        event = "VeryLazy",
+        event = "BufReadPost",
         opts = {
-            {
-                -- ---@alias Provider "claude" | "openai" | "azure" | "gemini" | "cohere" | "copilot" | string
-                -- provider = "claude", -- Recommend using Claude
-                -- auto_suggestions_provider = "claude", -- Since auto-suggestions are a high-frequency operation and therefore expensive, it is recommended to specify an inexpensive provider or even a free provider: copilot
-                -- claude = {
-                --     endpoint = "https://api.anthropic.com",
-                --     model = "claude-3-5-sonnet-20240620",
-                --     temperature = 0,
-                --     max_tokens = 4096,
-                -- },
-                -- behaviour = {
-                -- auto_suggestions = false, -- Experimental stage
-                -- auto_set_highlight_group = true,
-                -- auto_set_keymaps = true,
-                -- auto_apply_diff_after_generation = false,
-                -- support_paste_from_clipboard = false,
-                -- },
-                -- mappings = {
-                --     --- @class AvanteConflictMappings
-                --     diff = {
-                --         ours = "co",
-                --         theirs = "ct",
-                --         all_theirs = "ca",
-                --         both = "cb",
-                --         cursor = "cc",
-                --         next = "]x",
-                --         prev = "[x",
-                --     },
-                --     suggestion = {
-                --         accept = "<M-l>",
-                --         next = "<M-]>",
-                --         prev = "<M-[>",
-                --         dismiss = "<C-]>",
-                --     },
-                --     jump = {
-                --         next = "]]",
-                --         prev = "[[",
-                --     },
-                --     submit = {
-                --         normal = "<CR>",
-                --         insert = "<C-s>",
-                --     },
-                -- },
-                -- hints = { enabled = true },
-                windows = {
-                    ---@type "right" | "left" | "top" | "bottom"
-                    position = "right", -- the position of the sidebar
-                    wrap = true, -- similar to vim.o.wrap
-                    width = 40, -- default % based on available width
-                    sidebar_header = {
-                        align = "center", -- left, center, right for title
-                        rounded = true,
-                    },
-                },
+            behaviour = { auto_suggestions = false },
+            -- robust root detector with cwd fallback (compatible with v0.11.x)
+            root = {
+                detector = function(path)
+                    local util = require "lspconfig.util"
+                    path = (path and path ~= "") and path or vim.fn.getcwd()
+                    return util.root_pattern(".git", "package.json", "pom.xml", "build.gradle", "pyproject.toml")(path) or vim.fn.getcwd()
+                end,
+            },
+            windows = {
+                position = "right",
+                wrap = true,
+                width = 40,
+                sidebar_header = { align = "center", rounded = true },
             },
         },
     },
