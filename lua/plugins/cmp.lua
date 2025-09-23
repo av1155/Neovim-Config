@@ -35,6 +35,15 @@ return {
             { name = "spell", priority = 400 },
         }
 
+        opts.window = {
+            completion = cmp.config.window.bordered {
+                border = "rounded",
+            },
+            documentation = cmp.config.window.bordered {
+                border = "rounded",
+            },
+        }
+
         -- Directly set the sorting and mapping configurations
         opts.sorting = {
             priority_weight = 2,
